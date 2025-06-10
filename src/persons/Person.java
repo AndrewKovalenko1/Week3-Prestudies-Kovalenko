@@ -32,7 +32,24 @@ public class Person {
     //endtregion
 
     public void introduce() {
-        System.out.format("Hello! My name is %s. I'm %d years old.\nMy address is: %s\n",
-                name, age, address);
+        StringBuilder text = new StringBuilder("Hello! ");
+        if (name == null) {
+            text.append("I dont have name yet. ");
+        } else {
+            text.append("My name is %s. ").append(name);
+        }
+
+        if (age == 0) {
+            text.append("I dont have age yet.\n");
+        } else {
+            text.append("I'm ").append(age).append(" years old.\n");
+        }
+
+        if (address == null) {
+            text.append("I dont have address yet. ");
+        } else {
+            text.append("My address is: ").append(address);
+        }
+        System.out.println(text);
     }
 }

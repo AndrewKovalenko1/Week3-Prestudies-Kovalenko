@@ -8,14 +8,16 @@ public class ComputerTest {
         String choice;
         boolean isContinued = true;
         Computer computer = null;
+        ComputerShop computerShop = new ComputerShop();
         String menu = """
                 Computer shop
                 Choose operation you want to run:
                 1 - Choose computer with predefined configuration
                 2 - Choose computer with your own basic parameters
                 3 - Select your own configuration
-                4 - Upgrade characteristics
-                5 - Show profit
+                4 - Upgrade characteristics of last computer
+                5 - Show profit for last computer
+                6 - Show profit for selling all computers
                 m - Show menu
                 Any other enter - end the program
                \s""";
@@ -28,16 +30,19 @@ public class ComputerTest {
                     System.out.println("You chose computer with predefined configuration \n");
                     computer = new Computer();
                     System.out.println(computer);
+                    computerShop.addComputer(computer);
                     break;
                 case "2":
                     System.out.println("You chose computer with your own basic parameters \n");
                     computer = Computer.createBasicConfiguration();
                     System.out.println(computer);
+                    computerShop.addComputer(computer);
                     break;
                 case "3":
                     System.out.println("Select your own configuration \n");
                     computer = Computer.createCustomConfiguration();
                     System.out.println(computer);
+                    computerShop.addComputer(computer);
                     break;
                 case "4":
                     if (computer ==null){
@@ -56,6 +61,14 @@ public class ComputerTest {
                     }
                     System.out.println("Profit is: " + String.format("%.2f",computer.getProfit()));
                    break;
+                case "6":
+                    if (computerShop.getComputersQuantity() ==0){
+                        System.out.println("You didnt sell yet any computer. Profit is 0");
+                        break;
+                    }
+                    System.out.printf("Profit for selling %d computers is %.2f\n",
+                            computerShop.getComputersQuantity(), computerShop.calculateProfit());
+                    break;
                 case "m":
                     System.out.println(menu);
                     break;

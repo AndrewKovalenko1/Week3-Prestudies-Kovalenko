@@ -7,7 +7,6 @@ public class ComputerTest {
         Scanner scanner = new Scanner(System.in);
         String choice;
         boolean isContinued = true;
-        Computer computer = null;
         ComputerShop computerShop = new ComputerShop();
         String menu = """
                 Computer shop
@@ -15,8 +14,8 @@ public class ComputerTest {
                 1 - Choose computer with predefined configuration
                 2 - Choose computer with your own basic parameters
                 3 - Select your own configuration
-                4 - Upgrade characteristics of last computer
-                5 - Show profit for last computer
+                4 - Upgrade characteristics of current computer
+                5 - Show profit for current computer
                 6 - Show profit for selling all computers
                 m - Show menu
                 Any other enter - end the program
@@ -27,47 +26,22 @@ public class ComputerTest {
             choice = scanner.nextLine();
             switch (choice) {
                 case "1":
-                    System.out.println("You chose computer with predefined configuration \n");
-                    computer = new Computer();
-                    System.out.println(computer);
-                    computerShop.addComputer(computer);
+                    addPredefinedConfiguration(computerShop);
                     break;
                 case "2":
-                    System.out.println("You chose computer with your own basic parameters \n");
-                    computer = Computer.createBasicConfiguration();
-                    System.out.println(computer);
-                    computerShop.addComputer(computer);
+                    addBasicConfiguration(computerShop);
                     break;
                 case "3":
-                    System.out.println("Select your own configuration \n");
-                    computer = Computer.createCustomConfiguration();
-                    System.out.println(computer);
-                    computerShop.addComputer(computer);
+                    addOwnConfiguration(computerShop);
                     break;
                 case "4":
-                    if (computer ==null){
-                        System.out.println("To upgrade characteristics first you have to choose a configuration,\n" +
-                                "you want to upgrade with 1, 2 or 3 punkts of menu");
-                        break;
-                    }
-                    System.out.println("Select your own configuration \n");
-                    computer.changeCharacteristics();
-                    System.out.println(computer);
+                    changeCharacteristics(computerShop);
                     break;
                 case "5":
-                    if (computer ==null){
-                        System.out.println("To show profit first you have to choose a configuration with 1, 2 or 3 punkts of menu");
-                        break;
-                    }
-                    System.out.println("Profit is: " + String.format("%.2f",computer.getProfit()));
-                   break;
+                    showProfitCurrentComputer(computerShop);
+                    break;
                 case "6":
-                    if (computerShop.getComputersQuantity() ==0){
-                        System.out.println("You didnt sell yet any computer. Profit is 0");
-                        break;
-                    }
-                    System.out.printf("Profit for selling %d computers is %.2f\n",
-                            computerShop.getComputersQuantity(), computerShop.calculateProfit());
+                    showShopProfit(computerShop);
                     break;
                 case "m":
                     System.out.println(menu);
@@ -79,4 +53,56 @@ public class ComputerTest {
         } while (isContinued);
 
     }
+
+    //region Menu methods
+    public static void addPredefinedConfiguration(ComputerShop computerShop) {
+        System.out.println("You chose computer with predefined configuration \n");
+        Computer computer = new Computer();
+        System.out.println(computer);
+        computerShop.addComputer(computer);
+    }
+
+    public static void addBasicConfiguration(ComputerShop computerShop) {
+        System.out.println("You chose computer with your own basic parameters \n");
+        Computer computer = Computer.createBasicConfiguration();
+        System.out.println(computer);
+        computerShop.addComputer(computer);
+    }
+
+    public static void addOwnConfiguration(ComputerShop computerShop) {
+        System.out.println("Select your own configuration \n");
+        Computer computer = Computer.createCustomConfiguration();
+        System.out.println(computer);
+        computerShop.addComputer(computer);
+    }
+
+    public static void changeCharacteristics(ComputerShop computerShop) {
+        if (computerShop.getComputersQuantity() == 0){
+            System.out.println("To upgrade characteristics first you have to choose a configuration,\n" +
+                    "you want to upgrade with 1, 2 or 3 punkts of menu");
+            return;
+        }
+        Computer computer = computerShop.getCurrentComputer();
+        computer.changeCharacteristics();
+        System.out.println(computer);
+    }
+
+    private static void showProfitCurrentComputer(ComputerShop computerShop) {
+        if (computerShop.getComputersQuantity() == 0){
+            System.out.println("To show profit first you have to choose a configuration with 1, 2 or 3 punkts of menu");
+            return;
+        }
+        Computer computer = computerShop.getCurrentComputer();
+        System.out.println("Profit is: " + String.format("%.2f",computer.getProfit()));
+    }
+
+    private static void showShopProfit(ComputerShop computerShop) {
+        if (computerShop.getComputersQuantity() ==0){
+            System.out.println("You didnt sell yet any computer. Profit is 0");
+            return;
+        }
+        System.out.printf("Profit for selling %d computers is %.2f\n",
+                computerShop.getComputersQuantity(), computerShop.calculateProfit());
+    }
+    //endregion
 }

@@ -22,4 +22,8 @@ public class ComputerShop {
     public int getComputersQuantity() {
         return computers.size();
     }
+
+    public Computer getCurrentComputer(){
+        return computers.getLast();
+    }
 }

@@ -4,136 +4,136 @@ import java.util.Scanner;
 
 public class Computer {
 
-    //region Variables
-    private String manufacturerName;  // Manufacturer name
-    private int procSpeed;            // Processor speed in MHz
-    private int hardMemory;           // Hard drive size in gigabytes
-    private int ramMemory;            // RAM size in gigabytes
-    private int numberUSBPorts;      // Number of USB ports
-    private int screenSize;          // Screen size in inches (if available)
-    private ComputerType computerType;// Computer type (e.g., desktop computer, laptop)
-    private boolean isPreinstalledOS; // Preinstalled operating system: Yes/No
-    private int garantie;             // Garantie in months
-    private double purchasePrice;     // Purchase price in format 0.00
-    private double sellingPrice;      // Selling price in format 0.00
+    //region Variablen
+    private String herstellerName; // Herstellername
+    private int procGeschwindigkeit; // Prozessorgeschwindigkeit in MHz
+    private int festplattenSpeicher; // Festplattengröße in Gigabyte
+    private int ramSpeicher; // RAM-Größe in Gigabyte
+    private int anzahlUSBPorts; // Anzahl der USB-Ports
+    private int bildschirmGroesse; // Bildschirmgröße in Zoll (falls vorhanden)
+    private ComputerTyp computerTyp; // Computertyp (z.B. Desktop-Computer, Laptop)
+    private boolean istVorinstalliertesOS; // Vorinstalliertes Betriebssystem: Ja/Nein
+    private int garantie; // Garantie in Monaten
+    private double kaufpreis; // Kaufpreis im Format 0.00
+    private double verkaufspreis; // Verkaufspreis im Format 0.00
     static Scanner scanner = new Scanner(System.in);
 
     //endregion
 
-    //region Constructors
-    //Constructor for predefined variant
+    //region Konstruktoren
+    //Konstruktor für vordefinierte Variante
     public Computer() {
-        this.manufacturerName = "HP";
-        this.computerType = ComputerType.LAPTOP;
-        this.procSpeed = 4000;
-        this.hardMemory = 1024;
-        this.ramMemory = 8;
-        this.numberUSBPorts = 3;
-        this.screenSize = 24;
-        this.isPreinstalledOS = true;
+        this.herstellerName = "HP";
+        this.computerTyp = ComputerTyp.LAPTOP;
+        this.procGeschwindigkeit = 4000;
+        this.festplattenSpeicher = 1024;
+        this.ramSpeicher = 8;
+        this.anzahlUSBPorts = 3;
+        this.bildschirmGroesse = 24;
+        this.istVorinstalliertesOS = true;
         this.garantie = 36;
-        this.purchasePrice = 400.00;
-        this.sellingPrice = 600.00;
+        this.kaufpreis = 400.00;
+        this.verkaufspreis = 600.00;
 
     }
 
-    //Constructor with the minimum values of manufacturer name, screen size,
-    //and preinstalled operating system
-    public Computer( String manufacturerName, int screenSize, boolean isPreinstalledOS) {
-        this.manufacturerName = manufacturerName;
-        this.screenSize = screenSize;
-        this.isPreinstalledOS = isPreinstalledOS;
-        this.computerType = ComputerType.LAPTOP;
-        this.procSpeed = 6000;
-        this.hardMemory = 2048;
-        this.ramMemory = 16;
-        this.numberUSBPorts = 4;
+    //Konstruktor mit den Mindestwerten für Herstellernamen, Bildschirmgröße
+    //und vorinstalliertes Betriebssystem
+    public Computer(String herstellerName, int bildschirmGroesse, boolean istVorinstalliertesOS) {
+        this.herstellerName = herstellerName;
+        this.bildschirmGroesse = bildschirmGroesse;
+        this.istVorinstalliertesOS = istVorinstalliertesOS;
+        this.computerTyp = ComputerTyp.LAPTOP;
+        this.procGeschwindigkeit = 6000;
+        this.festplattenSpeicher = 2048;
+        this.ramSpeicher = 16;
+        this.anzahlUSBPorts = 4;
         this.garantie = 36;
-        this.purchasePrice = 500.00;
-        this.sellingPrice = 800.00;
+        this.kaufpreis = 500.00;
+        this.verkaufspreis = 800.00;
     }
 
-    //Constructor requiring all values
-    public Computer(String manufacturerName, int screenSize, boolean isPreinstalledOS,
-                    ComputerType computerType, int procSpeed, int hardMemory,
-                    int ramMemory, int numberUSBPorts,  int garantie) {
-        this.manufacturerName = manufacturerName;
-        this.screenSize = screenSize;
-        this.isPreinstalledOS = isPreinstalledOS;
-        this.computerType = computerType;
-        this.procSpeed = procSpeed;
-        this.hardMemory = hardMemory;
-        this.ramMemory = ramMemory;
-        this.numberUSBPorts = numberUSBPorts;
+    //Konstruktor, der alle Werte benötigt
+    public Computer(String herstellerName, int bildschirmGroesse, boolean istVorinstalliertesOS,
+                    ComputerTyp computerTyp, int procGeschwindigkeit, int festplattenSpeicher,
+                    int ramSpeicher, int anzahlUSBPorts, int garantie) {
+        this.herstellerName = herstellerName;
+        this.bildschirmGroesse = bildschirmGroesse;
+        this.istVorinstalliertesOS = istVorinstalliertesOS;
+        this.computerTyp = computerTyp;
+        this.procGeschwindigkeit = procGeschwindigkeit;
+        this.festplattenSpeicher = festplattenSpeicher;
+        this.ramSpeicher = ramSpeicher;
+        this.anzahlUSBPorts = anzahlUSBPorts;
         this.garantie = garantie;
-        this.purchasePrice = 600.00;
-        this.sellingPrice = 1000.00;
+        this.kaufpreis = 600.00;
+        this.verkaufspreis = 1000.00;
     }
     //endregion
 
-    //region Getters and Setters
-    public String getManufacturerName() {
-        return manufacturerName;
+    //region Getters und Setters. Muss wegen Aufgabe sein
+    public String getHerstellerName() {
+        return herstellerName;
     }
 
-    public void setManufacturerName(String manufacturerName) {
-        this.manufacturerName = manufacturerName;
+    public void setHerstellerName(String herstellerName) {
+        this.herstellerName = herstellerName;
     }
 
-    public int getProcSpeed() {
-        return procSpeed;
+    public int getProcGeschwindigkeit() {
+        return procGeschwindigkeit;
     }
 
-    public void setProcSpeed(int procSpeed) {
-        this.procSpeed = procSpeed;
+    public void setProcGeschwindigkeit(int procGeschwindigkeit) {
+        this.procGeschwindigkeit = procGeschwindigkeit;
     }
 
-    public int getHardMemory() {
-        return hardMemory;
+    public int getFestplattenSpeicher() {
+        return festplattenSpeicher;
     }
 
-    public void setHardMemory(int hardMemory) {
-        this.hardMemory = hardMemory;
+    public void setFestplattenSpeicher(int festplattenSpeicher) {
+        this.festplattenSpeicher = festplattenSpeicher;
     }
 
-    public int getRamMemory() {
-        return ramMemory;
+    public int getRamSpeicher() {
+        return ramSpeicher;
     }
 
-    public void setRamMemory(int ramMemory) {
-        this.ramMemory = ramMemory;
+    public void setRamSpeicher(int ramSpeicher) {
+        this.ramSpeicher = ramSpeicher;
     }
 
-    public int getNumberUSBPorts() {
-        return numberUSBPorts;
+    public int getAnzahlUSBPorts() {
+        return anzahlUSBPorts;
     }
 
-    public void setNumberUSBPorts(byte numberUSBPorts) {
-        this.numberUSBPorts = numberUSBPorts;
+    public void setAnzahlUSBPorts(byte anzahlUSBPorts) {
+        this.anzahlUSBPorts = anzahlUSBPorts;
     }
 
-    public int getScreenSize() {
-        return screenSize;
+    public int getBildschirmGroesse() {
+        return bildschirmGroesse;
     }
 
-    public void setScreenSize(byte screenSize) {
-        this.screenSize = screenSize;
+    public void setBildschirmGroesse(byte bildschirmGroesse) {
+        this.bildschirmGroesse = bildschirmGroesse;
     }
 
-    public ComputerType getComputerType() {
-        return computerType;
+    public ComputerTyp getComputerType() {
+        return computerTyp;
     }
 
-    public void setComputerType(ComputerType computerType) {
-        this.computerType = computerType;
+    public void setComputerType(ComputerTyp computerTyp) {
+        this.computerTyp = computerTyp;
     }
 
-    public boolean isPreinstalledOS() {
-        return isPreinstalledOS;
+    public boolean getIstVorinstalliertesOS() {
+        return istVorinstalliertesOS;
     }
 
-    public void setPreinstalledOS(boolean preinstalledOS) {
-        isPreinstalledOS = preinstalledOS;
+    public void setIstVorinstalliertesOS(boolean istVorinstalliertesOS) {
+        this.istVorinstalliertesOS = istVorinstalliertesOS;
     }
 
     public int getGarantie() {
@@ -144,80 +144,77 @@ public class Computer {
         this.garantie = garantie;
     }
 
-    public double getPurchasePrice() {
-        return purchasePrice;
+    public double getKaufpreis() {
+        return kaufpreis;
     }
 
-    public void setPurchasePrice(double purchasePrice) {
-        this.purchasePrice = purchasePrice;
+    public void setKaufpreis(double kaufpreis) {
+        this.kaufpreis = kaufpreis;
     }
 
-    public double getSellingPrice() {
-        return sellingPrice;
+    public double getVerkaufspreis() {
+        return verkaufspreis;
     }
 
-    public void setSellingPrice(double sellingPrice) {
-        this.sellingPrice = sellingPrice;
-    }
-    //endregion
-
-    //region Static inputs for fields
-    public static String inputManufacturerName() {
-        return EnterText(scanner, "Please enter your manufacturer name: ");
-    }
-
-    public static ComputerType inputComputerType() {
-        return inputComputerType(scanner);
-    }
-
-    public static int inputProcSpeed(){
-        return EnterPositiveIntNumber(scanner, "Please enter processor speed in Mhz: ");
-    }
-
-    public static int inputHardMemory(){
-        return EnterPositiveIntNumber(scanner, "Please enter hard memory capacity in Gb: ");
-    }
-    public static int inputRAMSize(){
-        return EnterPositiveIntNumber(scanner, "Please enter RAM size in Gb: ");
-    }
-
-    public static int inputGarantie(){
-        return EnterPositiveIntNumber(scanner, "Please enter garantie termin in months: ");
-    }
-
-    public static int inputNumberUSB(){
-        return EnterNotTooBigPositiveNumber(scanner, "Please enter number of USB ports (0-8): ", 8);
-    }
-
-    public static int inputScreenSize(){
-        return EnterNotTooBigPositiveNumber(scanner, "Please enter screen size in inches (to 32 inches): ", 32);
-    }
-
-    public static boolean chooseIsPreinstalledOS (){
-        return EnterBoolean(scanner, "Please chose if preinstalled OS): ");
+    public void setVerkaufspreis(double verkaufspreis) {
+        this.verkaufspreis = verkaufspreis;
     }
     //endregion
 
-    //region Methods for input with validation
+    //region Statische Eingaben für Felder
+    public static String holeHerstellerName() {
+        return eingabeText(scanner, "Bitte geben Sie Ihren Herstellernamen ein: ");
+    }
 
-    private static int EnterPositiveIntNumber(Scanner scanner, String text) {
+    public static int holeProcGeschwindigkeit(){
+        return eingabePositiveGanzzahl(scanner, "Bitte geben Sie die Prozessorgeschwindigkeit in MHz ein: ");
+    }
+
+    public static int holeFestplattenSpeicher(){
+        return eingabePositiveGanzzahl(scanner, "Bitte geben Sie die Festplattengröße in GB ein: ");
+    }
+    
+    public static int holeRamGroesse(){
+        return eingabePositiveGanzzahl(scanner, "Bitte geben Sie die RAM-Größe in GB ein: ");
+    }
+
+    public static int holeGarantieDauer(){
+        return eingabePositiveGanzzahl(scanner, "Bitte geben Sie die Garantiedauer in Monaten ein: ");
+    }
+
+    public static int holeAnzahlUsb(){
+        return eingabeBegrenztePositiveZahl(scanner, "Bitte geben Sie die Anzahl der USB-Anschlüsse ein (0–8): ", 8);
+    }
+
+    public static int holeBildschirmgroesse(){
+        return eingabeBegrenztePositiveZahl(scanner, "Bitte geben Sie die Bildschirmgröße in Zoll ein (bis zu 32 Zoll): ", 32);
+    }
+
+    public static boolean waehleIstBetriebssystemVorinstalliert(){
+        return eingabeBoolean(scanner, "Bitte wählen Sie, ob das Betriebssystem vorinstalliert ist: ");
+    }
+    //endregion
+
+    //region Methoden zur Eingabe mit Validierung
+
+    private static int eingabePositiveGanzzahl(Scanner scanner, String text) {
         int number = -1;
         do {
             System.out.print(text);
             if (scanner.hasNextInt()) {
                 number = scanner.nextInt();
                 if (number < 0) {
-                    System.out.println("Please, enter only positive integer values");
+                    System.out.println("Bitte geben Sie nur positive ganze Zahlen ein.");
                 }
             } else {
-                System.out.println("Please, enter only positive integer values");
+                System.out.println("Bitte geben Sie nur positive ganze Zahlen ein.");
                 scanner.next();
             }
         }while (number < 0);
         return number;
     }
 
-    private static String EnterText(Scanner scanner, String text) {
+    private static String eingabeText(Scanner scanner, String text) {
         String name;
         do {
             System.out.print(text);
@@ -226,54 +223,55 @@ public class Computer {
         return name;
     }
 
-    private static boolean EnterBoolean(Scanner scanner, String text) {
-        boolean value = false, isBooleanValue = false;
+    private static boolean eingabeBoolean(Scanner scanner, String text) {
+        boolean wert = false, istBooleanWert = false;
 
         do {
             System.out.print(text);
             if (scanner.hasNextBoolean()) {
-                value = scanner.nextBoolean();
-                isBooleanValue = true;
+                wert = scanner.nextBoolean();
+                istBooleanWert = true;
             } else {
-                System.out.println("Please, enter only 'true' or 'false'");
+                System.out.println("Bitte geben Sie nur 'true' oder 'false' ein");
                 scanner.next();
             }
-        } while (!isBooleanValue);
-        return value;
+        } while (!istBooleanWert);
+        return wert;
     }
 
-    private static int EnterNotTooBigPositiveNumber(Scanner scanner, String text, int biggestPossibleValue) {
-        int value;
+    private static int eingabeBegrenztePositiveZahl(Scanner scanner, String text, int groesstmoeglicherWert) {
+        int wert;
         do {
-            value = EnterPositiveIntNumber(scanner, text);
-            if (value > biggestPossibleValue) {
-                System.out.printf("Value cant be more than %d \n",biggestPossibleValue);
+            wert = eingabePositiveGanzzahl(scanner, text);
+            if (wert > groesstmoeglicherWert) {
+                System.out.printf("Der Wert darf nicht größer als %d sein.\n",groesstmoeglicherWert);
             }
-        } while (value < 0 || value > biggestPossibleValue);
-        return value;
+        } while (wert < 0 || wert > groesstmoeglicherWert);
+        return wert;
     }
 
-    private static ComputerType inputComputerType(Scanner scanner){
+    public static ComputerTyp holeComputerTyp(){
+        Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("""
-                     Please chose correct computer type.
-                     Input one of four variants:
-                     1 - Desktop,
-                     2 - Laptop,
-                     3 - Server,
-                     4 - Transformer
-                    """);
-            System.out.print("Select the type: ");
-            String choice = scanner.nextLine();
-            switch (choice){
+                 Bitte wählen Sie den korrekten Computertyp aus.
+                    Geben Sie eine der vier Varianten ein:
+                    1 – Desktop,
+                    2 – Laptop,
+                    3 – Server,
+                    4 – Transformer
+                """);
+            System.out.print("Wählen Sie den Typ aus: ");
+            String auswahl = scanner.nextLine();
+            switch (auswahl){
                 case "1":
-                    return ComputerType.DESKTOP;
+                    return ComputerTyp.DESKTOP;
                 case"2":
-                    return ComputerType.LAPTOP;
+                    return ComputerTyp.LAPTOP;
                 case"3":
-                    return ComputerType.SERVER;
+                    return ComputerTyp.SERVER;
                 case"4":
-                    return ComputerType.TRANSFORMER;
+                    return ComputerTyp.TRANSFORMER;
                 default:
             }
         }while (true);
@@ -283,91 +281,91 @@ public class Computer {
 
     @Override
     public String toString() {
-        return "Computer configuration \n"+
-                "   Manufacturer name: " + manufacturerName + "\n" +
-                "   Computer type: " + computerType.showName() + "\n" +
-                "   Processor speed: " + procSpeed + " Mhz\n" +
-                "   Hard drive size: " + hardMemory + " Gb\n" +
-                "   RAM size: " + ramMemory + " Gb\n" +
-                "   Number of USB ports: " + numberUSBPorts + "\n" +
-                "   Screen size: " + screenSize + " inch \n" +
-                "   Preinstalled operating system: Yes/No: " + (isPreinstalledOS ? "Yes" : "No") + "\n" +
-                "   Garantie " + garantie + " months\n" +
-                "   Price " + String.format("%.2f",sellingPrice);
+        return "Computerkonfiguration \n" +
+                "   Herstellername: " + herstellerName + "\n" +
+                "   Computertyp: " + computerTyp.zeigeName() + "\n" +
+                "   Prozessorgeschwindigkeit: " + procGeschwindigkeit + " MHz\n" +
+                "   Festplattengröße: " + festplattenSpeicher + " GB\n" +
+                "   RAM-Größe: " + ramSpeicher + " GB\n" +
+                "   Anzahl der USB-Anschlüsse: " + anzahlUSBPorts + "\n" +
+                "   Bildschirmgröße: " + bildschirmGroesse + " Zoll\n" +
+                "   Vorinstalliertes Betriebssystem: Ja/Nein: " + (istVorinstalliertesOS ? "Ja" : "Nein") + "\n" +
+                "   Garantie: " + garantie + " Monate\n" +
+                "   Preis: " + String.format("%.2f", verkaufspreis);
     }
 
-    public static Computer createBasicConfiguration(){
-        System.out.println("Please, enter basic parameters yours computer");
-        String manufacturerName = inputManufacturerName();
-        int screenSize = inputScreenSize();
-        boolean isPreinstalledOS = chooseIsPreinstalledOS();
-        return new Computer(manufacturerName, screenSize, isPreinstalledOS);
+    public static Computer erstelleBasisKonfiguration(){
+        System.out.println("Bitte geben Sie die Grundparameter Ihres Computers ein.");
+        String herstellerName = holeHerstellerName();
+        int bildschirmGroesse = holeBildschirmgroesse();
+        boolean istVorinstalliertesOS = waehleIstBetriebssystemVorinstalliert();
+        return new Computer(herstellerName, bildschirmGroesse, istVorinstalliertesOS);
     }
 
-    public static Computer createCustomConfiguration(){
-        System.out.println("Please, enter all parameters of your computer");
-        String manufacturerName = inputManufacturerName();
-        int screenSize = inputScreenSize();
-        boolean isPreinstalledOS = chooseIsPreinstalledOS();
-        ComputerType computerType = inputComputerType();
-        int procSpeed = inputProcSpeed();
-        int hardMemory = inputHardMemory();
-        int ramMemory = inputRAMSize();
-        int numberUSBPorts = inputNumberUSB();
-        int garantie = inputGarantie();
+    public static Computer erstelleBenutzerdefinierteKonfiguration(){
+        System.out.println("Bitte geben Sie alle Parameter Ihres Computers ein.");
+        String manufacturerName = holeHerstellerName();
+        int bildschirmGroesse = holeBildschirmgroesse();
+        boolean istVorinstalliertesOS = waehleIstBetriebssystemVorinstalliert();
+        ComputerTyp computerTyp = holeComputerTyp();
+        int procGeschwindigkeit = holeProcGeschwindigkeit();
+        int festplattenSpeicher = holeFestplattenSpeicher();
+        int ramSpeicher = holeRamGroesse();
+        int anzahlUSBPorts = holeAnzahlUsb();
+        int garantie = holeGarantieDauer();
 
-        return new Computer(manufacturerName, screenSize, isPreinstalledOS,
-                computerType, procSpeed, hardMemory, ramMemory, numberUSBPorts, garantie);
+        return new Computer(manufacturerName, bildschirmGroesse, istVorinstalliertesOS,
+                computerTyp, procGeschwindigkeit, festplattenSpeicher, ramSpeicher, anzahlUSBPorts, garantie);
     }
 
-    public double getProfit() {
-        return this.sellingPrice - this.purchasePrice;
+    public double holeGewinn() {
+        return this.verkaufspreis - this.kaufpreis;
     }
 
-    public void changeCharacteristics(){
-        String menu = """
-                You can choose which characteristic you want to change:
-                Choose operation you want to run:
-                1 - RAM size
-                2 - Hard drive size
-                3 - Screen size
-                4 - Preinstalled OS
-                m - Show menu
-                Any other enter - end the changes
+    public void aendereMerkmale(){
+        String menue = """
+                Sie können auswählen, welche Eigenschaft Sie ändern möchten:
+                  Wählen Sie die gewünschte Aktion aus:
+                  1 – RAM-Größe
+                  2 – Festplattengröße
+                  3 – Bildschirmgröße
+                  4 – Vorinstalliertes Betriebssystem
+                  m – Menü anzeigen
+                  Jede andere Eingabe – Änderungen beenden
                \s""";
 
-        System.out.print(menu);
+        System.out.print(menue);
         Scanner scanner = new Scanner(System.in);
-        String choice;
-        boolean isContinued = true;
+        String auswahl;
+        boolean istFortgesetzt = true;
         do {
-            System.out.print("\nYour change choice: ");
-            choice = scanner.nextLine();
-            switch (choice) {
+            System.out.print("\nIhre Änderungswahl: ");
+            auswahl = scanner.nextLine();
+            switch (auswahl) {
                 case "1":
-                    System.out.println("Current RAM size is: " + this.ramMemory + " Gb");
-                    this.ramMemory = inputRAMSize();
+                    System.out.println("Aktuelle RAM-Größe: " + this.ramSpeicher + " GB");
+                    this.ramSpeicher = holeRamGroesse();
                     break;
                 case "2":
-                    System.out.println("Current Hard drive is: " + this.hardMemory + " Gb");
-                    this.ramMemory = inputHardMemory();
+                    System.out.println("Aktuelle Festplattengröße: " + this.festplattenSpeicher + " GB");
+                    this.ramSpeicher = holeFestplattenSpeicher();
                     break;
                 case "3":
-                    System.out.println("Current screen size is: " + this.screenSize + " inches");
-                    this.screenSize = inputScreenSize();
+                    System.out.println("Aktuelle Bildschirmgröße: " + this.bildschirmGroesse + " Zoll");
+                    this.bildschirmGroesse = holeBildschirmgroesse();
                     break;
                 case "4":
-                    System.out.println("Current choice of preinstalled OS option: " + (isPreinstalledOS ? "Yes" : "No"));
-                    this.isPreinstalledOS = chooseIsPreinstalledOS();
+                    System.out.println("Aktuelle Auswahl der Option vorinstalliertes Betriebssystem: " + (istVorinstalliertesOS ? "Ja" : "Nein"));
+                    this.istVorinstalliertesOS = waehleIstBetriebssystemVorinstalliert();
                     break;
                 case "m":
-                    System.out.println(menu);
+                    System.out.println(menue);
                     break;
                 default:
-                    isContinued = false;
+                    istFortgesetzt = false;
                     break;
             }
-        } while (isContinued);
+        } while (istFortgesetzt);
     }
 
 }

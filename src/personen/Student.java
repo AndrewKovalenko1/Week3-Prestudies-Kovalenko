@@ -1,15 +1,15 @@
-package persons;
+package personen;
 
 import java.util.Random;
 
 public class Student extends Person{
 
-    private final String joke;
+    private final String witz;
 
 
     public Student() {
         Random random = new Random();
-        String[] jokes = {
+        String[] witze = {
                 "Exams are like girlfriends — too many questions and difficult to understand.",
                 "Studying is like folding a fitted sheet — no one really knows how to do it.",
                 "I have a degree in caffeine consumption.",
@@ -18,17 +18,17 @@ public class Student extends Person{
                 "Why was the math book sad? Because it had too many problems.",
                 "Dear math, I’m not a therapist. Solve your own problems."
         };
-        int index = random.nextInt(jokes.length);
-        joke = jokes[index];
+        int index = random.nextInt(witze.length);
+        witz = witze[index];
     }
 
     @Override
-    public void introduce() {
-        super.introduce();
-        System.out.println(joke);
+    public void fuehreEin() {
+        super.fuehreEin();
+        System.out.println(witz);
     }
 
     public void tellJoke() {
-        System.out.println(joke);
+        System.out.println(witz);
     }
 }

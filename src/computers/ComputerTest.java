@@ -5,104 +5,105 @@ import java.util.Scanner;
 public class ComputerTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String choice;
-        boolean isContinued = true;
-        ComputerShop computerShop = new ComputerShop();
-        String menu = """
-                Computer shop
-                Choose operation you want to run:
-                1 - Choose computer with predefined configuration
-                2 - Choose computer with your own basic parameters
-                3 - Select your own configuration
-                4 - Upgrade characteristics of current computer
-                5 - Show profit for current computer
-                6 - Show profit for selling all computers
-                m - Show menu
-                Any other enter - end the program
-               \s""";
-        System.out.print(menu);
+        String wahl;
+        boolean istFortgesetzt = true;
+        Computerladen computerladen = new Computerladen();
+        String menue = """
+                  Computerladen
+                    Wählen Sie die Aktion, die Sie ausführen möchten:
+                    1 - Computer mit vordefinierter Konfiguration wählen
+                    2 - Computer mit eigenen Basisparametern wählen
+                    3 - Eigene Konfiguration auswählen
+                    4 - Merkmale des aktuellen Computers verbessern
+                    5 - Gewinn für aktuellen Computer anzeigen
+                    6 - Gewinn aus dem Verkauf aller Computer anzeigen
+                    m - Menü anzeigen
+                    Jede andere Eingabe - Programm beenden
+                \s""";
+        System.out.print(menue);
         do {
-            System.out.print("\nYour choice: ");
-            choice = scanner.nextLine();
-            switch (choice) {
+            System.out.print("\nIhre Wahl: ");
+            wahl = scanner.nextLine();
+            switch (wahl) {
                 case "1":
-                    addPredefinedConfiguration(computerShop);
+                    hinzufuegeVordefinierteKonfiguration(computerladen);
                     break;
                 case "2":
-                    addBasicConfiguration(computerShop);
+                    hinzufuegeBasisKonfiguration(computerladen);
                     break;
                 case "3":
-                    addOwnConfiguration(computerShop);
+                    hinzufuegeEigeneKonfiguration(computerladen);
                     break;
                 case "4":
-                    changeCharacteristics(computerShop);
+                    aendereMerkmale(computerladen);
                     break;
                 case "5":
-                    showProfitCurrentComputer(computerShop);
+                    zeigeGewinnAktuellerCompute(computerladen);
                     break;
                 case "6":
-                    showShopProfit(computerShop);
+                    zeigeLadenGewinn(computerladen);
                     break;
                 case "m":
-                    System.out.println(menu);
+                    System.out.println(menue);
                     break;
                 default:
-                    isContinued = false;
+                    istFortgesetzt = false;
+                    scanner.close();
                     break;
             }
-        } while (isContinued);
+        } while (istFortgesetzt);
 
     }
 
     //region Menu methods
-    public static void addPredefinedConfiguration(ComputerShop computerShop) {
-        System.out.println("You chose computer with predefined configuration \n");
+    public static void hinzufuegeVordefinierteKonfiguration(Computerladen computerladen) {
+        System.out.println("Sie haben einen Computer mit vordefinierter Konfiguration gewählt. \n");
         Computer computer = new Computer();
         System.out.println(computer);
-        computerShop.addComputer(computer);
+        computerladen.hinzufuegeComputer(computer);
     }
 
-    public static void addBasicConfiguration(ComputerShop computerShop) {
-        System.out.println("You chose computer with your own basic parameters \n");
-        Computer computer = Computer.createBasicConfiguration();
+    public static void hinzufuegeBasisKonfiguration(Computerladen computerladen) {
+        System.out.println("Sie haben einen Computer mit eigenen Basisparametern gewählt. \n");
+        Computer computer = Computer.erstelleBasisKonfiguration();
         System.out.println(computer);
-        computerShop.addComputer(computer);
+        computerladen.hinzufuegeComputer(computer);
     }
 
-    public static void addOwnConfiguration(ComputerShop computerShop) {
-        System.out.println("Select your own configuration \n");
-        Computer computer = Computer.createCustomConfiguration();
+    public static void hinzufuegeEigeneKonfiguration(Computerladen computerladen) {
+        System.out.println("Wählen Sie Ihre eigene Konfiguration aus. \n");
+        Computer computer = Computer.erstelleBenutzerdefinierteKonfiguration();
         System.out.println(computer);
-        computerShop.addComputer(computer);
+        computerladen.hinzufuegeComputer(computer);
     }
 
-    public static void changeCharacteristics(ComputerShop computerShop) {
-        if (computerShop.getComputersQuantity() == 0){
-            System.out.println("To upgrade characteristics first you have to choose a configuration,\n" +
-                    "you want to upgrade with 1, 2 or 3 punkts of menu");
+    public static void aendereMerkmale(Computerladen computerladen) {
+        if (computerladen.holeComputerAnzahl() == 0){
+            System.out.println("Um Merkmale zu verbessern, müssen Sie zuerst eine Konfiguration auswählen,\n" +
+                    "die Sie mit 1, 2 oder 3 Punkten im Menü verbessern möchten.");
             return;
         }
-        Computer computer = computerShop.getCurrentComputer();
-        computer.changeCharacteristics();
+        Computer computer = computerladen.holeAktuellenComputer();
+        computer.aendereMerkmale();
         System.out.println(computer);
     }
 
-    private static void showProfitCurrentComputer(ComputerShop computerShop) {
-        if (computerShop.getComputersQuantity() == 0){
-            System.out.println("To show profit first you have to choose a configuration with 1, 2 or 3 punkts of menu");
+    private static void zeigeGewinnAktuellerCompute(Computerladen computerladen) {
+        if (computerladen.holeComputerAnzahl() == 0){
+            System.out.println("Um den Gewinn anzuzeigen, müssen Sie zuerst eine Konfiguration mit 1, 2 oder 3 Punkten im Menü auswählen.");
             return;
         }
-        Computer computer = computerShop.getCurrentComputer();
-        System.out.println("Profit is: " + String.format("%.2f",computer.getProfit()));
+        Computer computer = computerladen.holeAktuellenComputer();
+        System.out.println("Der Gewinn ist: " + String.format("%.2f",computer.holeGewinn()));
     }
 
-    private static void showShopProfit(ComputerShop computerShop) {
-        if (computerShop.getComputersQuantity() ==0){
-            System.out.println("You didnt sell yet any computer. Profit is 0");
+    private static void zeigeLadenGewinn(Computerladen computerladen) {
+        if (computerladen.holeComputerAnzahl() ==0){
+            System.out.println("Sie haben noch keinen Computer verkauft. Der Gewinn beträgt 0.");
             return;
         }
-        System.out.printf("Profit for selling %d computers is %.2f\n",
-                computerShop.getComputersQuantity(), computerShop.calculateProfit());
+        System.out.printf("Gewinn aus dem Verkauf von %d Computern beträgt %.2f\n",
+                computerladen.holeComputerAnzahl(), computerladen.gewinnBerechnen());
     }
     //endregion
 }

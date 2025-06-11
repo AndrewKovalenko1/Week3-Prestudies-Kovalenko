@@ -2,28 +2,28 @@ package computers;
 
 import java.util.ArrayList;
 
-public class ComputerShop {
+public class Computerladen {
     private final ArrayList<Computer> computers = new ArrayList<>();
 
-    public double calculateProfit(){
-        double profit = 0;
+    public double gewinnBerechnen(){
+        double gewinn = 0;
         for (Computer computer : computers) {
-            profit += computer.getProfit();
+            gewinn += computer.holeGewinn();
         }
-        return profit;
+        return gewinn;
     }
 
-    public void addComputer(Computer computer) {
+    public void hinzufuegeComputer(Computer computer) {
         if(!computers.contains(computer)){
             computers.add(computer);
         }
     }
 
-    public int getComputersQuantity() {
+    public int holeComputerAnzahl() {
         return computers.size();
     }
 
-    public Computer getCurrentComputer(){
+    public Computer holeAktuellenComputer(){
         return computers.getLast();
     }
 }

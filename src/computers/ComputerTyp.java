@@ -1,17 +1,17 @@
 package computers;
 
-public enum ComputerType {
+public enum ComputerTyp {
     DESKTOP("Desktop"),
     LAPTOP("Laptop"),
     SERVER("Server"),
-    TRANSFORMER("Transformer");
+    TRANSFORMER("Convertible");
 
     private final String name;
-    ComputerType(String name) {
+    ComputerTyp(String name) {
         this.name = name;
     }
 
-    public String showName(){
+    public String zeigeName(){
         return this.name;
     }
 }

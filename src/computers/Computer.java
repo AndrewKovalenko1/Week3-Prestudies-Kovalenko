@@ -162,31 +162,31 @@ public class Computer {
     //endregion
 
     //region Statische Eingaben für Felder
-    public static String holeHerstellerName() {
+    public static String eingabeHerstellerName() {
         return eingabeText(scanner, "Bitte geben Sie Ihren Herstellernamen ein: ");
     }
 
-    public static int holeProcGeschwindigkeit(){
+    public static int eingabeProcGeschwindigkeit(){
         return eingabePositiveGanzzahl(scanner, "Bitte geben Sie die Prozessorgeschwindigkeit in MHz ein: ");
     }
 
-    public static int holeFestplattenSpeicher(){
+    public static int eingabeFestplattenSpeicher(){
         return eingabePositiveGanzzahl(scanner, "Bitte geben Sie die Festplattengröße in GB ein: ");
     }
     
-    public static int holeRamGroesse(){
+    public static int eingabeRamGroesse(){
         return eingabePositiveGanzzahl(scanner, "Bitte geben Sie die RAM-Größe in GB ein: ");
     }
 
-    public static int holeGarantieDauer(){
+    public static int eingabeGarantieDauer(){
         return eingabePositiveGanzzahl(scanner, "Bitte geben Sie die Garantiedauer in Monaten ein: ");
     }
 
-    public static int holeAnzahlUsb(){
+    public static int eingabeAnzahlUsb(){
         return eingabeBegrenztePositiveZahl(scanner, "Bitte geben Sie die Anzahl der USB-Anschlüsse ein (0–8): ", 8);
     }
 
-    public static int holeBildschirmgroesse(){
+    public static int eingabeBildschirmgroesse(){
         return eingabeBegrenztePositiveZahl(scanner, "Bitte geben Sie die Bildschirmgröße in Zoll ein (bis zu 32 Zoll): ", 32);
     }
 
@@ -250,7 +250,7 @@ public class Computer {
         return wert;
     }
 
-    public static ComputerTyp holeComputerTyp(){
+    public static ComputerTyp eingabeComputerTyp(){
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("""
@@ -296,23 +296,23 @@ public class Computer {
 
     public static Computer erstelleBasisKonfiguration(){
         System.out.println("Bitte geben Sie die Grundparameter Ihres Computers ein.");
-        String herstellerName = holeHerstellerName();
-        int bildschirmGroesse = holeBildschirmgroesse();
+        String herstellerName = eingabeHerstellerName();
+        int bildschirmGroesse = eingabeBildschirmgroesse();
         boolean istVorinstalliertesOS = waehleIstBetriebssystemVorinstalliert();
         return new Computer(herstellerName, bildschirmGroesse, istVorinstalliertesOS);
     }
 
     public static Computer erstelleBenutzerdefinierteKonfiguration(){
         System.out.println("Bitte geben Sie alle Parameter Ihres Computers ein.");
-        String manufacturerName = holeHerstellerName();
-        int bildschirmGroesse = holeBildschirmgroesse();
+        String manufacturerName = eingabeHerstellerName();
+        int bildschirmGroesse = eingabeBildschirmgroesse();
         boolean istVorinstalliertesOS = waehleIstBetriebssystemVorinstalliert();
-        ComputerTyp computerTyp = holeComputerTyp();
-        int procGeschwindigkeit = holeProcGeschwindigkeit();
-        int festplattenSpeicher = holeFestplattenSpeicher();
-        int ramSpeicher = holeRamGroesse();
-        int anzahlUSBPorts = holeAnzahlUsb();
-        int garantie = holeGarantieDauer();
+        ComputerTyp computerTyp = eingabeComputerTyp();
+        int procGeschwindigkeit = eingabeProcGeschwindigkeit();
+        int festplattenSpeicher = eingabeFestplattenSpeicher();
+        int ramSpeicher = eingabeRamGroesse();
+        int anzahlUSBPorts = eingabeAnzahlUsb();
+        int garantie = eingabeGarantieDauer();
 
         return new Computer(manufacturerName, bildschirmGroesse, istVorinstalliertesOS,
                 computerTyp, procGeschwindigkeit, festplattenSpeicher, ramSpeicher, anzahlUSBPorts, garantie);
@@ -344,15 +344,15 @@ public class Computer {
             switch (auswahl) {
                 case "1":
                     System.out.println("Aktuelle RAM-Größe: " + this.ramSpeicher + " GB");
-                    this.ramSpeicher = holeRamGroesse();
+                    this.ramSpeicher = eingabeRamGroesse();
                     break;
                 case "2":
                     System.out.println("Aktuelle Festplattengröße: " + this.festplattenSpeicher + " GB");
-                    this.ramSpeicher = holeFestplattenSpeicher();
+                    this.ramSpeicher = eingabeFestplattenSpeicher();
                     break;
                 case "3":
                     System.out.println("Aktuelle Bildschirmgröße: " + this.bildschirmGroesse + " Zoll");
-                    this.bildschirmGroesse = holeBildschirmgroesse();
+                    this.bildschirmGroesse = eingabeBildschirmgroesse();
                     break;
                 case "4":
                     System.out.println("Aktuelle Auswahl der Option vorinstalliertes Betriebssystem: " + (istVorinstalliertesOS ? "Ja" : "Nein"));

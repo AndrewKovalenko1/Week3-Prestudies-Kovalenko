@@ -28,7 +28,7 @@ public class Student extends Person{
         System.out.println(witz);
     }
 
-    public void tellJoke() {
+    public void erzaehleWitz() {
         System.out.println(witz);
     }
 }

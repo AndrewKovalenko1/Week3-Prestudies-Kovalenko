@@ -36,19 +36,19 @@ public class Person {
         if (name == null) {
             text.append("Ich habe noch keinen Namen. ");
         } else {
-            text.append("Mein Name ist %s. ").append(name);
+            text.append("Mein Name ist ").append(name).append(".");
         }
 
         if (alter == 0) {
-            text.append("Ich habe noch kein Alter.\n");
+            text.append(" Ich habe noch kein Alter.\n");
         } else {
-            text.append("Ich bin ").append(alter).append(" Jahre alt.\n");
+            text.append(" Ich bin ").append(alter).append(" Jahre alt.\n");
         }
 
         if (adresse == null) {
-            text.append("Ich habe noch keine Adresse. ");
+            text.append(" Ich habe noch keine Adresse. ");
         } else {
-            text.append("Meine Adresse ist: ").append(adresse);
+            text.append(" Meine Adresse ist: ").append(adresse);
         }
         System.out.println(text);
     }

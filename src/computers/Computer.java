@@ -71,7 +71,8 @@ public class Computer {
     }
     //endregion
 
-    //region Getters und Setters. Muss wegen Aufgabe sein
+    //region Getters und Setters. Muss wegen Aufgabe sein. Ich hab änderung mit anderem Weg gemacht
+    // ich nutze aendereMerkmale(). Aber diese Metoden können später nutyen werden.
     public String getHerstellerName() {
         return herstellerName;
     }

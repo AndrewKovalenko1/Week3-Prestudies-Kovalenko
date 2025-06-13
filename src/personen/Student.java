@@ -25,7 +25,7 @@ public class Student extends Person{
     @Override
     public void fuehreEin() {
         super.fuehreEin();
-        System.out.println(witz);
+        erzaehleWitz();
     }
 
     public void erzaehleWitz() {
